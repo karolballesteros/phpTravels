@@ -51,22 +51,12 @@ public class Navegador extends Constantes {
 
 
     public static void main(String[] args) throws InterruptedException {
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.phptravels.net/");
         Home home;
-        Navegador navegador;
-        WebDriver driver;
-        Home h = new Home();
-        Navegador na = new Navegador();
-        na.abrirApp(NAVEGADORCHROME, URL);
-        //System.out.println("driver desde navegador: "+driver);
-        Thread.sleep(5000);
-        //home= PageFactory.initElements(driver, Home.class);  //Aqui debo llamar el DRIVER y no sé como!! le escribo Driver y me llega nullo
-        //System.out.println("driver desde navegador despues de inicializarlo: "+driver);
-        h.hacerclicpestanatour();
-
-
-
-
-
+        home = PageFactory.initElements(driver, Home.class);
+        home.hacerclicpestanatour();
+        Thread.sleep(1000);
     }
 
 }
