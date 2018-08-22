@@ -13,6 +13,9 @@ public class Navegador extends Constantes {
     String ruta = null;
     Home home;
 
+
+
+
     public WebDriver getDriver() {
         return driver;
     }
@@ -52,21 +55,10 @@ public class Navegador extends Constantes {
 
     public static void main(String[] args) throws InterruptedException {
         Home home;
-        Navegador navegador;
-        WebDriver driver;
-        Home h = new Home();
         Navegador na = new Navegador();
-        na.abrirApp(NAVEGADORCHROME, URL);
-        //System.out.println("driver desde navegador: "+driver);
+        WebDriver driver=na.abrirApp(NAVEGADORCHROME, URL);
         Thread.sleep(5000);
-        //home= PageFactory.initElements(driver, Home.class);  //Aqui debo llamar el DRIVER y no sé como!! le escribo Driver y me llega nullo
-        //System.out.println("driver desde navegador despues de inicializarlo: "+driver);
-        h.hacerclicpestanatour();
-
-
-
-
-
+        home= PageFactory.initElements(na.getDriver(), Home.class);
+       home.hacerclicpestanatour();
     }
-
 }
